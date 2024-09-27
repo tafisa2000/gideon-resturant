@@ -3,11 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\CategoryController;
 use App\Http\Controllers\pos\MenuController;
-
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(PublicController::class)->group(function () {
+    Route::get('/', 'home')->name('public.welcome');
+    Route::get('/menu', 'menu')->name('public.menu');
 });
 
 Route::get('/dashboard', function () {
