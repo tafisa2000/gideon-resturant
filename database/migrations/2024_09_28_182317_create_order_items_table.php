@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu_items', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->foreignId('order_id')->contrained('orders')->onDelete('cascade');
+            $table->foreignId('menu_item_id')->contrained('menu_items')->onDelete('cascade');
+            $table->foreignId('modifier_id')->constrained('modifiers')->onDelete('cascade');
+            $table->integer('quantity');
             $table->decimal('price', 10, 2);
-            $table->string('image_url')->nullable();
-            // Define category_id as an unsigned big integer
-            $table->foreignId('category_id')->unsigned()->nullable()->constrained('categories')->onDelete('set null');
-
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menu_items');
+        Schema::dropIfExists('order__items');
     }
 };

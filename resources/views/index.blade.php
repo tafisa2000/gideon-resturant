@@ -15,11 +15,7 @@
 @endphp --}}
 
     <div class="content">
-
-        <!-- Start Content-->
         <div class="container-fluid">
-
-            <!-- start page title -->
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
@@ -43,10 +39,11 @@
                     </div>
                 </div>
             </div>
-            <!-- end page title -->
 
             <div class="row">
-                <div class="col-md-6 col-xl-3">
+
+
+                <!-- <div class="col-md-6 col-xl-3">
                     <div class="widget-rounded-circle card">
                         <div class="card-body">
                             <div class="row">
@@ -63,12 +60,12 @@
                                         <p class="text-muted mb-1 text-truncate">Total Paid </p>
                                     </div>
                                 </div>
-                            </div> <!-- end row-->
+                            </div> 
                         </div>
-                    </div> <!-- end widget-rounded-circle-->
-                </div> <!-- end col-->
+                    </div> 
+                </div>  -->
 
-                <div class="col-md-6 col-xl-3">
+                <!-- <div class="col-md-6 col-xl-3">
                     <div class="widget-rounded-circle card">
                         <div class="card-body">
                             <div class="row">
@@ -85,11 +82,11 @@
                                         <p class="text-muted mb-1 text-truncate">Total Due </p>
                                     </div>
                                 </div>
-                            </div> <!-- end row-->
+                            </div> 
                         </div>
-                    </div> <!-- end widget-rounded-circle-->
-                </div> <!-- end col-->
-
+                    </div> 
+                </div>  -->
+<!-- 
                 <div class="col-md-6 col-xl-3">
                     <div class="widget-rounded-circle card">
                         <div class="card-body">
@@ -107,10 +104,10 @@
                                         <p class="text-muted mb-1 text-truncate">Complete Order </p>
                                     </div>
                                 </div>
-                            </div> <!-- end row-->
+                            </div> 
                         </div>
-                    </div> <!-- end widget-rounded-circle-->
-                </div> <!-- end col-->
+                    </div>
+                </div>  -->
 
                 <div class="col-md-6 col-xl-3">
                     <div class="widget-rounded-circle card">
@@ -129,16 +126,14 @@
                                         <p class="text-muted mb-1 text-truncate">Pending Order </p>
                                     </div>
                                 </div>
-                            </div> <!-- end row-->
+                            </div> 
                         </div>
-                    </div> <!-- end widget-rounded-circle-->
-                </div> <!-- end col-->
+                    </div> 
+                </div>
             </div>
-            <!-- end row-->
+            
 
-            <div class="row">
-
-
+            <!-- <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body pb-2">
@@ -156,10 +151,10 @@
                                 <div id="sales-analytics" class="mt-4" data-colors="#1abc9c,#4a81d4"></div>
                             </div>
                         </div>
-                    </div> <!-- end card -->
-                </div> <!-- end col-->
-            </div>
-            <!-- end row -->
+                    </div> 
+                </div>
+            </div> -->
+            
 
             <div class="row">
 

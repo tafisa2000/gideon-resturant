@@ -15,21 +15,29 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         //
         $permissions = [
-            'edit articles',
-            'delete articles',
-            'publish articles',
-            'unpublish articles',
+            'user management',
+            'menu management',
         ];
 
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
         }
 
-        // Create Roles and assign existing permissions
         $adminRole = Role::create(['name' => 'admin']);
-        $adminRole->givePermissionTo(['edit articles', 'delete articles', 'publish articles', 'unpublish articles']);
+        $adminRole->givePermissionTo(['user management', 'menu management']);
+
+        $managerRole = Role::create(['name' => 'manager']);
+        $managerRole->givePermissionTo('');
 
         $cashierRole = Role::create(['name' => 'cashier']);
-        $cashierRole->givePermissionTo('edit articles');
+        $cashierRole->givePermissionTo('');
+
+        $kitchenRole = Role::create(['name' => 'kitchen']);
+        $kitchenRole->givePermissionTo('');
+
+        $waiterRole = Role::create(['name' => 'waiter']);
+        $waiterRole->givePermissionTo('');
+
     }
+
 }

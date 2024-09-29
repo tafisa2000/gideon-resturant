@@ -14,16 +14,41 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
-
         $adminUser = User::create([
             'name' => 'Restorant Owner',
             'email' => 'massamugeorge@gmail.com',
             'password' => bcrypt('password123'),
         ]);
 
-        $adminUser->assignRole($adminRole);
+        $managerUser = User::create([
+            'name' => 'Manager User',
+            'email' => 'manager@gmail.com',
+            'password' => bcrypt('password123'),
+        ]);
+
+        $cashierUser = User::create([
+            'name' => 'Cashier User',
+            'email' => 'cashier@gmail.com',
+            'password' => bcrypt('password123'),
+        ]);
+
+        $kitchenUser = User::create([
+            'name' => 'Kitchen Staff',
+            'email' => 'kitchen@gmail.com',
+            'password' => bcrypt('password123'),
+        ]);
+
+        $waiterUser = User::create([
+            'name' => 'Waiter User',
+            'email' => 'waiter@gmail.com',
+            'password' => bcrypt('password123'),
+        ]);
+
+        $adminUser->assignRole('admin');
+        $managerUser->assignRole('manager');
+        $cashierUser->assignRole('cashier');
+        $kitchenUser->assignRole('kitchen');
+        $waiterUser->assignRole('waiter');
         
     }
 }

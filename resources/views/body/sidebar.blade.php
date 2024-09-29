@@ -1,42 +1,29 @@
     <div class="left-side-menu">
 
         <div class="h-100" data-simplebar>
-
-            <!-- User box -->
-
-
-            <!--- Sidemenu -->
             <div id="sidebar-menu">
 
                 <ul id="side-menu">
-
-                    <li class="menu-title">Navigation</li>
-
+                   
                     <li>
                         <a href="{{ url('/dashboard') }}">
-                            <i class="mdi mdi-view-dashboard-outline"></i>
-                            <span> Dashboards </span>
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span> Dashboard</span>
                         </a>
                     </li>
-
-
-                    <li>
+                    <!-- <li>
                         {{-- {{ route('pos') }} --}}
                         <a href="">
                             <span class="badge bg-pink float-end">Hot</span>
                             <i class="fas fa-cart-plus"></i>
                             <span> POS </span>
                         </a>
-                    </li>
-
-
-
-
-                    <li class="menu-title mt-2">Apps</li>
+                    </li> -->
+                   @can('user management')
                     <li>
                         <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                            <i class="fas fa-user-friends"></i>
-                            <span> Category Manage </span>
+                            <i class="fas fa-users"></i>
+                            <span>Staff Management</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarEcommerce">
@@ -52,10 +39,13 @@
                             </ul>
                         </div>
                     </li>
+                    @endcan
+
+                    @can('menu management')
                     <li>
                         <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                            <i class="fas fa-user-friends"></i>
-                            <span> Menu List Manage </span>
+                            <i class="fas fa-utensils"></i>
+                            <span>Menu Management</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarEcommerce">
@@ -72,28 +62,14 @@
                         </div>
                     </li>
 
-
-
-
-
-
-                    <li class="menu-title mt-2">Custom</li>
-
-
-
-
+                    @endcan
 
                 </ul>
             </div>
             </li>
             </ul>
-
         </div>
-        <!-- End Sidebar -->
-
         <div class="clearfix"></div>
-
     </div>
-    <!-- Sidebar -left -->
 
     </div>
