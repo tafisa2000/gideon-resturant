@@ -29,12 +29,7 @@
                         <div class="collapse" id="sidebarEcommerce">
                             <ul class="nav-second-level">
                                 <li>
-                                    {{-- {{ route('all.employee') }} --}}
-                                    <a href="{{ route('all.category') }}">All Category</a>
-                                </li>
-                                <li>
-                                    {{-- {{ route('add.employee') }} --}}
-                                    <a href="">Add Category </a>
+                                    <a href="{{ route('all.category') }}">Employees</a>
                                 </li>
                             </ul>
                         </div>
@@ -51,19 +46,12 @@
                         <div class="collapse" id="sidebarEcommerce">
                             <ul class="nav-second-level">
                                 <li>
-                                    {{-- {{ route('all.employee') }} --}}
-                                    <a href="{{ route('all.menu') }}">All Menu</a>
-                                </li>
-                                <li>
-                                    {{-- {{ route('add.employee') }} --}}
-                                    <a href="">Add Category </a>
+                                    <a href="{{ route('all.category') }}">Categories</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-
                     @endcan
-
                 </ul>
             </div>
             </li>

@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function EditCategory($id)
     {
         $category = Category::findOrFail($id);
-        return view('backend.category.edit_category', compact('category'));
+        return response()->json($category); // Return JSON for AJAX request
     } // End Method
 
 
@@ -79,6 +79,14 @@ class CategoryController extends Controller
 
         return redirect()->back()->with($notification);
     } // End Method
+
+
+    public function edit($id)
+       {
+          $category = Category::findOrFail($id);
+          return response()->json($category); // Return JSON for AJAX request
+       }
+
 
 
 }

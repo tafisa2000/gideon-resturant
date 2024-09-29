@@ -14,7 +14,6 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Category </a></li>
-
                             </ol>
                         </div>
                         <h4 class="page-title">Edit Category</h4>
@@ -67,8 +66,6 @@
                                 </form>
                             </div>
                             <!-- end settings content-->
-
-
                         </div>
                     </div> <!-- end card-->
 
