@@ -11,10 +11,10 @@ class MenuItem extends Model
 
     protected $fillable = [
         'name',
-        'description',
         'price',
+        'description',
+        'category',
         'image_url',
-        'category_id',
     ];
 
     public function categories()

@@ -80,7 +80,7 @@
                 <form class="px-3" method="post" action="{{ route('category.update') }}">
                     @csrf
                     <input type="hidden" name="id" value="" id="edit-category-id">
-                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Edit</h5>
+                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i>Edit Category</h5>
                     <div class="mb-3">
                         <label for="category_name" class="form-label">Name</label>
                         <input type="text" name="category_name" class="form-control" value="" id="edit-category-name" required>

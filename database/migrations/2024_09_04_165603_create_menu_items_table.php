@@ -17,9 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('image_url')->nullable();
-            // Define category_id as an unsigned big integer
             $table->foreignId('category_id')->unsigned()->nullable()->constrained('categories')->onDelete('set null');
-
             $table->timestamps();
         });
     }

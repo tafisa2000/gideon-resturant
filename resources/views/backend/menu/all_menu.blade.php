@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -24,11 +24,12 @@
                         <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>No</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Description</th>
                                     <th>Category</th>
+                                    <th>Photo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -36,15 +37,24 @@
                                 @foreach ($menu as $key => $item)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $menu->name }}</td>
-                                        <td>{{ $menu->price }}</td>
-                                        <td>{{ $menu->description }}</td>
-                                        <td>{{ $menu->category_id }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->price }} Tsh</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>{{ $item->category->name }}</td>
                                         <td>
-                                            <a href="{{ route('edit.category', $item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light edit-btn" 
-                                               data-id="{{ $item->id }}" data-name="{{ $item->name }}" 
-                                               data-bs-toggle="modal" data-bs-target="#edit">Edit</a>
-                                            <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light">Delete</a>
+                                        <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->name }}" style="max-width: 100px;">
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn btn-blue rounded-pill waves-effect waves-light edit-btn" 
+                                               data-id="{{ $item->id }}" 
+                                               data-name="{{ $item->name }}" 
+                                               data-price="{{ $item->price }}" 
+                                               data-description="{{ $item->description }}" 
+                                               data-category="{{ $item->category_id }}" 
+                                               data-image-url="{{ asset('images/' . $item->image) }}" 
+                                               data-bs-toggle="modal" 
+                                               data-bs-target="#edit">Edit</a>
+                                            <a href="{{ route('delete.menu', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -80,15 +90,14 @@
                         <textarea class="form-control" name="description" rows="3" placeholder="Enter a description" required></textarea>
                     </div>
                     <div class="mb-3">
-                     <label for="category" class="form-label">Category</label>
-                         <select class="form-select" name="category" required>
-                         <option value="" disabled selected>Select a category</option>
-                         @foreach($category as $cat)
-                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                          @endforeach
-                         </select>
-                     </div>
-
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" name="category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            @foreach($category as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
                         <div style="border: 2px dashed #007bff; border-radius: 5px; padding: 10px; text-align: center;">
@@ -100,28 +109,59 @@
                     </div>
                 </form>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
-
-
-
-<!-- Edit Category Modal -->
+<!-- Edit Menu Modal -->
 <div id="edit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <form class="px-3" method="post" action="{{ route('category.update') }}">
+                <form id="editMenuForm" method="post" action="{{ route('menu.update') }}" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id" value="" id="edit-category-id">
-                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Edit</h5>
-                    <div class="mb-3">
-                        <label for="category_name" class="form-label">Name</label>
-                        <input type="text" name="category_name" class="form-control" value="" id="edit-category-name" required>
+                 
+                    
+                    <input type="hidden" name="id" id="edit-menu-id"> 
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="menu_name" class="form-label">Name</label>
+                            <input class="form-control" type="text" name="name" id="edit-menu-name" placeholder="Name" required>
+                        </div>
+                        <div class="col">
+                            <label for="menu_price" class="form-label">Price</label>
+                            <input class="form-control" type="text" name="price" id="edit-menu-price" placeholder="Price" required>
+                        </div>
                     </div>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i>Edit</button>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" name="description" id="edit-menu-description" rows="3" placeholder="Enter a description" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" name="category" id="edit-menu-category" required>
+                            <option value="" disabled>Select a category</option>
+                            @foreach($category as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload Image</label>
+                        <div style="border: 2px dashed #007bff; border-radius: 5px; padding: 10px; text-align: center;">
+                            <input style="border: none; width: 100%; background: transparent;" type="file" name="image" accept="image/*">
+                        </div>
+                        <div class="mt-3 text-center">
+                            <img id="edit-menu-image" src="" alt="Current image" style="max-width: 100%; height: auto; display: none;">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Update</button>
                     </div>
                 </form>
             </div>
@@ -129,14 +169,26 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
 <script type="text/javascript">
-    $(document).on('click', '.edit-btn', function() {
-        var categoryId = $(this).data('id');
-        var categoryName = $(this).data('name');
+$(document).on('click', '.edit-btn', function() {
+        var menuId = $(this).data('id');
+        var menuName = $(this).data('name');
+        var menuPrice = $(this).data('price');
+        var menuDescription = $(this).data('description');
+        var menuCategory = $(this).data('category');
+        var menuImage = $(this).data('image');
         
-        $('#edit-category-id').val(categoryId);
-        $('#edit-category-name').val(categoryName);
+        $('#edit-menu-id').val(menuId);
+        $('#edit-menu-name').val(menuName);
+        $('#edit-menu-price').val(menuPrice);
+        $('#edit-menu-description').val(menuDescription);
+        $('#edit-menu-category').val(menuDescription);
+        $('#edit-menu-image').val(menuImage);
     });
 </script>
+
+
 
 @endsection
