@@ -41,10 +41,11 @@ class CategoryController extends Controller
         return redirect()->route('all.category')->with($notification);
     }
 
-    public function EditCategory($id)
+    public function EditCategory(Request $request)
     {
-        $category = Category::findOrFail($id);
-        return response()->json($category); // Return JSON for AJAX request
+        $category_id = $request->category_id;
+        $category_name = Category::where('id', $category_id)->first();
+        return response()->json($category_name); // Return JSON for AJAX request
     } // End Method
 
 
@@ -76,16 +77,15 @@ class CategoryController extends Controller
             'message' => 'Category Deleted Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
     } // End Method
 
 
-    public function edit($id)
-       {
-          $category = Category::findOrFail($id);
-          return response()->json($category); // Return JSON for AJAX request
-       }
+    // public function edit($id)
+    //    {
+    //       $category = Category::findOrFail($id);
+    //       return response()->json($category); // Return JSON for AJAX request
+    //    }
 
 
 
