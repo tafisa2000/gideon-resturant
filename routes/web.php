@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\CategoryController;
 use App\Http\Controllers\pos\MenuController;
+use App\Http\Controllers\pos\ModifierController;
 use App\Http\Controllers\pos\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\HomeController;
@@ -48,4 +49,13 @@ Route::controller(MenuController::class)->group(function () {
     Route::get('/delete/menu/{id}', 'DeleteMenu')->name('delete.menu');
 });
 
+
+Route::controller(ModifierController::class)->group(function () {
+
+    Route::get('/all/modifier', 'index')->name('all.modifier');
+    Route::post('/store/modifier', 'store')->name('modifier.store');
+    Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
+    Route::post('/update/modifier', 'update')->name('modifier.update');
+    Route::get('/delete/menu/{id}', 'DeleteMenu')->name('delete.modifier');
+});
 require __DIR__ . '/auth.php';

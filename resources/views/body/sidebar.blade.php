@@ -54,6 +54,12 @@
                                     <a href="{{ route('all.menu') }}">Menus</a>
                                 </li>
                             </ul>
+
+                            <ul class="nav-second-level">
+                                <li>
+                                    <a href="{{ route('all.modifier') }}">Modifiers</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                     @endcan
