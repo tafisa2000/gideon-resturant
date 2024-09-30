@@ -29,7 +29,7 @@
                         <div class="collapse" id="sidebarEcommerce">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="{{ route('all.category') }}">Employees</a>
+                                    <a href="{{ route('all.user') }}">Employees</a>
                                 </li>
                             </ul>
                         </div>

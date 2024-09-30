@@ -107,25 +107,18 @@ class MenuController extends Controller
         'category' => 'required|integer',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
-
     $menu_id = $request->id;
     $menu = MenuItem::findOrFail($menu_id);
-
-
     if ($request->hasFile('image')) {
-
         if ($menu->image) {
             Storage::disk('public')->delete($menu->image);
         }
-
-
         $imagePath = $request->file('image')->store('images', 'public');
 
         $menu->update([
             'image' => $imagePath, 
         ]);
     }
-
     $menu->update([
         'name' => $request->name,
         'price' => $request->price,

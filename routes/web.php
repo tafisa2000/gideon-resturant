@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\CategoryController;
 use App\Http\Controllers\pos\MenuController;
+use App\Http\Controllers\pos\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/all/user', 'index')->name('all.user');
+    Route::post('/store/user', 'store')->name('user.store');
+    // Route::get('/edit/category', 'EditCategory')->name('edit.category');
+    // Route::post('/update/category', 'UpdateCategory')->name('category.update');
+    // Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+});
+
 
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/all/category', 'AllCategory')->name('all.category');
