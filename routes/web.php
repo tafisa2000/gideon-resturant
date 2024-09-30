@@ -31,11 +31,11 @@ Route::controller(CategoryController::class)->group(function () {
 
 Route::controller(MenuController::class)->group(function () {
 
-    Route::get('/all/menu', 'Allmenu')->name('all.menu');
-    // Route::post('/store/category', 'StoreCategory')->name('category.store');
-    // Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
-    // Route::post('/update/category', 'UpdateCategory')->name('category.update');
-    // Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+    Route::get('/all/menu', 'AllMenu')->name('all.menu');
+    Route::post('/store/menu', 'StoreMenu')->name('menu.store');
+    Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
+    Route::post('/update/category', 'UpdateCategory')->name('category.update');
+    Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
 });
 
 require __DIR__ . '/auth.php';

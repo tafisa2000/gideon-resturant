@@ -64,7 +64,7 @@
                         <input class="form-control" type="text" name="category_name" placeholder="Add Category" required>
                     </div>
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" type="submit">Add</button>
                     </div>
                 </form>
             </div>
@@ -86,7 +86,7 @@
                         <input type="text" name="category_name" class="form-control" value="" id="edit-category-name" required>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i>Edit</button>
                     </div>
                 </form>
             </div>
