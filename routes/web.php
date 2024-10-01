@@ -56,6 +56,6 @@ Route::controller(ModifierController::class)->group(function () {
     Route::post('/store/modifier', 'store')->name('modifier.store');
     Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     Route::post('/update/modifier', 'update')->name('modifier.update');
-    Route::get('/delete/menu/{id}', 'DeleteMenu')->name('delete.modifier');
+    Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
 });
 require __DIR__ . '/auth.php';

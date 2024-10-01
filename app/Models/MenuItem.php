@@ -17,7 +17,7 @@ class MenuItem extends Model
         'image_url',
     ];
 
-    public function categories()
+    public function category() // Singular form
     {
         return $this->belongsTo(Category::class);
     }
