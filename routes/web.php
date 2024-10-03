@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\CategoryController;
 use App\Http\Controllers\pos\MenuController;
 use App\Http\Controllers\pos\ModifierController;
+use App\Http\Controllers\pos\OderController;
 use App\Http\Controllers\pos\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\HomeController;
@@ -57,5 +58,14 @@ Route::controller(ModifierController::class)->group(function () {
     Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     Route::post('/update/modifier', 'update')->name('modifier.update');
     Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
+});
+
+Route::controller(OderController::class)->group(function () {
+
+    Route::get('/add/oder', 'addOder')->name('add.oder');
+    // Route::post('/store/modifier', 'store')->name('modifier.store');
+    // Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
+    // Route::post('/update/modifier', 'update')->name('modifier.update');
+    // Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
 });
 require __DIR__ . '/auth.php';

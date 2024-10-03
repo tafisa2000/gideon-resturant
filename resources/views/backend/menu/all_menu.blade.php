@@ -102,8 +102,9 @@
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
                             <div style="border: 2px dashed #007bff; border-radius: 5px; padding: 10px; text-align: center;">
-                                <input style="border: none; width: 100%; background: transparent;" type="file"
-                                    name="image" accept="image/*" required>
+                                <input
+                                    style="bor                                            der: none; width: 100%; background: transparent;"
+                                    type="file" name="image" accept="image/*" required>
                             </div>
                         </div>
                         <div class="mb-3 text-center">
