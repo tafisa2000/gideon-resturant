@@ -5,7 +5,7 @@ namespace App\Http\Controllers\pos;
 use App\Http\Controllers\Controller;
 use App\Models\MenuItem;
 use App\Models\Modifier;
-use App\Models\Table;
+use App\Models\table;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -16,9 +16,10 @@ class OderController extends Controller
     public function addOder()
     {
         $menu_item = MenuItem::all();
+        $table_item = MenuItem::all();
         $modifier = Modifier::all();
         $server = User::all();
-        $table = Table::all();
+        $table = table::all();
         $invoice_data = 1;
         $sale_data = Order::orderBy('id', 'desc')->first();
         if ($sale_data == null) {
