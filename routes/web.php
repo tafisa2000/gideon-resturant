@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\CategoryController;
 use App\Http\Controllers\pos\MenuController;
 use App\Http\Controllers\pos\ModifierController;
+use App\Http\Controllers\pos\TableController;
 use App\Http\Controllers\pos\OderController;
 use App\Http\Controllers\pos\UserController;
 use App\Http\Controllers\PublicController;
@@ -58,6 +59,15 @@ Route::controller(ModifierController::class)->group(function () {
     Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     Route::post('/update/modifier', 'update')->name('modifier.update');
     Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
+});
+
+Route::controller(TableController::class)->group(function () {
+
+    Route::get('/all/table', 'index')->name('all.table');
+    Route::post('/store/table', 'store')->name('table.store');
+    Route::get('/edit/table', 'EditMenu')->name('edit.table');
+    Route::post('/update/table', 'update')->name('table.update');
+    Route::get('/delete/table/{id}', 'DeleteTable')->name('delete.table');
 });
 
 Route::controller(OderController::class)->group(function () {

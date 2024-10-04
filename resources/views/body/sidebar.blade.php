@@ -77,6 +77,21 @@
 
                             </div>
                         </li>
+                        <li>
+                            <a href="#sidebarEcommerce" data-bs-toggle="collapse">
+                                <i class="fas fa-utensils"></i>
+                                <span>Table Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarEcommerce">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="{{ route('all.table') }}">add Table</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
                     @endcan
                 </ul>
             </div>
