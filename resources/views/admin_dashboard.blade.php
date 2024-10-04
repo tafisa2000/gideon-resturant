@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Easy POS System </title>
+    <title>Easy POS System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -69,15 +69,9 @@
 
         <!-- Topbar Start -->
         @include('body.header')
-        <!-- end Topbar -->
 
-        <!-- ========== Left Sidebar Start ========== -->
         @include('body.sidebar')
-        <!-- Left Sidebar End -->
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
+>
 
         <div class="content-page">
 
