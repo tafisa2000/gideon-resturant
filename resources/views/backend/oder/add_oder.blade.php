@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Add Oder</h4><br><br>
+                            <h4 class="card-title">Invoice</h4><br><br>
 
                             <div class="row">
                                 <div class="col-md-1">
@@ -29,50 +29,26 @@
 
                                 <div class="col-md-3">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label">Menu Selection</label>
+                                        <label for="example-text-input" class="form-label">Menu</label>
                                         <select name="service_id" id="service_id" class="form-select select2"
                                             aria-label="Default select example">
-                                            <option selected="">Open this select menu</option>
-                                            @foreach ($menu_item as $sev)
-                                                <option value="{{ $sev->id }}" data-cost="{{ $sev->price }}"
-                                                    data-image="{{ $sev->image_url }}">
-                                                    {{ $sev->name }}
+                                            <option selected="">Select Menu</option>
+                                            @foreach ($menu_item as $item)
+                                                <option value="{{ $item->id }}" data-cost="{{ $item->price }}"
+                                                    data-image="{{ $item->image_url }}">
+                                                    {{ $item->name }}
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-md-3" style="display: none">
-                                    <div class="md-3">
-                                        <label for="example-text-input" class="form-label">Menu Cost</label>
-                                        <select name="server_cost" id="server_cost" class="form-select select2"
-                                            aria-label="Default select example">
-                                            <option selected="">Open this select menu</option>
-                                            @foreach ($menu_item as $sev)
-                                                <option value="{{ $sev->id }}">{{ $sev->price }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3" style="display: none">
-                                    <div class="md-3">
-                                        <label for="example-text-input" class="form-label">Menu Image</label>
-                                        <select name="server_cost" id="server_cost" class="form-select select2"
-                                            aria-label="Default select example">
-                                            <option selected="">Open this select menu</option>
-                                            @foreach ($menu_item as $sev)
-                                                <option value="{{ $sev->id }}">{{ $sev->image_url }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-md-3">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label">Modifier Selection</label>
+                                        <label for="example-text-input" class="form-label">Modifier</label>
                                         <select name="server_id" id="server_id" class="form-select select2"
                                             aria-label="Default select example">
-                                            <option selected="">Open this select menu</option>
+                                            <option selected="">Select Modifier</option>
                                             @foreach ($modifier as $mod)
                                                 <option value="{{ $mod->id }}">{{ $mod->name }}</option>
                                             @endforeach
@@ -83,8 +59,7 @@
                                 <div class="col-md-2">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label" style="margin-top:43px;"></label>
-                                        <i
-                                            class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore">
+                                        <i class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore">
                                             Add More
                                         </i>
                                     </div>
@@ -109,7 +84,7 @@
                                     <tbody id="addRow" class="addRow"></tbody>
                                     <tbody>
                                         <tr>
-                                            <td colspan="4">Grand Total</td>
+                                            <td colspan="4">Total Cost</td>
                                             <td>
                                                 <input type="text" name="cost" value="0" id="estimated_amount"
                                                     class="form-control estimated_amount" readonly
@@ -127,43 +102,25 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-3">
-                                        <label for="">Server Selection</label>
+                                        <label for="">Server</label>
                                         <select name="customer_id" id="customer_id" class="form-select select2">
                                             <option value="">Select Server</option>
                                             @foreach ($server as $cust)
                                                 <option value="{{ $cust->id }}">{{ $cust->name }}</option>
                                             @endforeach
-                                            {{-- <option value="0">New Customer</option> --}}
                                         </select><br>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="">Table Selection</label>
-                                        <select name="customer_id" id="customer_id" class="form-select select2">
+                                        <label for="">Table</label>
+                                        <select name="table_id" id="table_id" class="form-select select2">
                                             <option value="">Select Table</option>
-                                            @foreach ($table as $cust)
-                                                <option value="{{ $cust->id }}">{{ $cust->name }}</option>
+                                            @foreach ($table as $table)
+                                                <option value="{{ $table->id }}">{{ $table->name }}</option>
                                             @endforeach
-                                            {{-- <option value="0">New Customer</option> --}}
                                         </select><br>
                                     </div>
                                 </div><br>
 
-                                <!-- Hide Add Customer Form -->
-                                {{-- <div class="row new_customer" style="display:none">
-                                    <div class="form-group col-md-4">
-                                        <input type="text" name="name" id="name" class="form-control"
-                                            placeholder="Write Customer Name">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" name="mobile_no" id="mobile_no" class="form-control"
-                                            placeholder="Write Customer Mobile No">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="Write Customer Email">
-                                    </div>
-                                </div><br> --}}
-                                <!-- End Hide Add Customer Form -->
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-info" id="storeButton">Invoice Store</button>
                                 </div>
@@ -174,30 +131,33 @@
             </div>
         </div>
     </div>
-    <script id="document-template" type="text/x-handlebars-template">
-    <tr class="delete_add_more_item" id="delete_add_more_item">
-        <input type="hidden" name="date" value="@{{date}}">
-        <input type="hidden" name="sale_no" value="@{{invoice_no}}">
-        <input type="hidden" name="service_id[]" value="@{{service_id}}">
-        <input type="hidden" name="server_id[]" value="@{{server_id}}">
-        
-        <!-- Display Image -->
-        <td><img src="@{{ service_image }}" alt="Item Image" width="50" height="50"></td>
-        
-        <!-- Display Item Name -->
-        <td>@{{ service_name }}</td>
-        
-        <!-- Display Modifier Name -->
-        <td>@{{ server_name }}</td>
-        
-        <!-- Display Cost -->
-        <td>@{{ server_cost }}</td>
-        
-        <!-- Action: Remove Button -->
-        <td><i class="btn btn-danger btn-sm fas fa-window-close removeeventmore"></i></td>
-    </tr>
-</script>
 
+    <!-- Handlebars Template -->
+    <script id="document-template" type="text/x-handlebars-template">
+        <tr class="delete_add_more_item" id="delete_add_more_item">
+            <input type="hidden" name="date[]" value="@{{date}}">
+            <input type="hidden" name="sale_no[]" value="@{{invoice_no}}">
+            <input type="hidden" name="service_id[]" value="@{{service_id}}">
+            <input type="hidden" name="server_id[]" value="@{{server_id}}">
+            
+            <!-- Display Image -->
+            <td><img src="@{{ service_image }}" alt="Item Image" width="50" height="50"></td>
+            
+            <!-- Display Item Name -->
+            <td>@{{ service_name }}</td>
+            
+            <!-- Display Modifier Name -->
+            <td>@{{ server_name }}</td>
+            
+            <!-- Display Cost -->
+            <td>@{{ server_cost }}</td>
+            
+            <!-- Action: Remove Button -->
+            <td><i class="btn btn-danger btn-sm fas fa-window-close removeeventmore"></i></td>
+        </tr>
+    </script>
+
+    <!-- JavaScript Logic -->
     <script type="text/javascript">
         $(document).ready(function() {
             // Add event more
@@ -214,8 +174,7 @@
                 var service_image = $('#service_id').find('option:selected').data('image');
 
                 // Correct the image path if necessary
-                var image_url = service_image ? '{{ asset('images') }}/' + service_image :
-                    'default-image.jpg';
+                var image_url = service_image ? '{{ asset('') }}' + service_image : '{{ asset('default-image.jpg') }}';
 
                 // Validation
                 if (date == '' || service_id == '' || server_id == '') {
@@ -237,7 +196,7 @@
                     server_id: server_id,
                     server_name: server_name,
                     server_cost: service_cost,
-                    service_image: image_url // Pass the corrected image URL here
+                    service_image: image_url 
                 };
 
                 var html = template(data);

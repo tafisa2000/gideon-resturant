@@ -39,6 +39,22 @@
                     @can('menu management')
                         <li>
                             <a href="#sidebarEcommerce" data-bs-toggle="collapse">
+                            <i class="fas fa-chair"></i>
+                                <span>Table Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarEcommerce">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="{{ route('all.table') }}">Tables</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#sidebarEcommerce" data-bs-toggle="collapse">
                                 <i class="fas fa-utensils"></i>
                                 <span>Menu Management</span>
                                 <span class="menu-arrow"></span>
@@ -62,34 +78,19 @@
                                 </ul>
                             </div>
                         </li>
+
                         <li>
                             <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                                <i class="fas fa-utensils"></i>
+                            <i class="fas fa-concierge-bell"></i>
                                 <span>Oder Management</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarEcommerce">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('add.oder') }}">add Oder</a>
+                                        <a href="{{ route('add.oder') }}">Oders</a>
                                     </li>
                                 </ul>
-
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                                <i class="fas fa-utensils"></i>
-                                <span>Table Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarEcommerce">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('all.table') }}">add Table</a>
-                                    </li>
-                                </ul>
-
                             </div>
                         </li>
                     @endcan

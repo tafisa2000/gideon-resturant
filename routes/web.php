@@ -26,16 +26,16 @@ Route::middleware('auth')->group(function () {
 
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/all/user', 'index')->name('all.user');
+    Route::get('/users', 'index')->name('all.user');
     Route::post('/store/user', 'store')->name('user.store');
-    // Route::get('/edit/category', 'EditCategory')->name('edit.category');
-    // Route::post('/update/category', 'UpdateCategory')->name('category.update');
-    // Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+    Route::get('/edit/user', 'EditUser')->name('edit.user');
+    Route::post('/update/user', 'update')->name('user.update');
+    Route::get('/delete/user/{id}', 'destroy')->name('delete.user');
 });
 
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('/all/category', 'AllCategory')->name('all.category');
+    Route::get('/categories', 'AllCategory')->name('all.category');
     Route::post('/store/category', 'StoreCategory')->name('category.store');
     Route::get('/edit/category', 'EditCategory')->name('edit.category');
     Route::post('/update/category', 'UpdateCategory')->name('category.update');
@@ -44,7 +44,7 @@ Route::controller(CategoryController::class)->group(function () {
 
 
 Route::controller(MenuController::class)->group(function () {
-    Route::get('/all/menu', 'AllMenu')->name('all.menu');
+    Route::get('/menus', 'AllMenu')->name('all.menu');
     Route::post('/store/menu', 'StoreMenu')->name('menu.store');
     Route::get('/edit/menu', 'EditMenu')->name('edit.menu');
     Route::post('/update/menu', 'UpdateMenu')->name('menu.update');
@@ -54,7 +54,7 @@ Route::controller(MenuController::class)->group(function () {
 
 Route::controller(ModifierController::class)->group(function () {
 
-    Route::get('/all/modifier', 'index')->name('all.modifier');
+    Route::get('/modifiers', 'index')->name('all.modifier');
     Route::post('/store/modifier', 'store')->name('modifier.store');
     Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     Route::post('/update/modifier', 'update')->name('modifier.update');
@@ -63,7 +63,7 @@ Route::controller(ModifierController::class)->group(function () {
 
 Route::controller(TableController::class)->group(function () {
 
-    Route::get('/all/table', 'index')->name('all.table');
+    Route::get('/tables', 'index')->name('all.table');
     Route::post('/store/table', 'store')->name('table.store');
     Route::get('/edit/table', 'EditMenu')->name('edit.table');
     Route::post('/update/table', 'update')->name('table.update');
@@ -72,7 +72,7 @@ Route::controller(TableController::class)->group(function () {
 
 Route::controller(OderController::class)->group(function () {
 
-    Route::get('/add/oder', 'addOder')->name('add.oder');
+    Route::get('/oders', 'addOder')->name('add.oder');
     // Route::post('/store/modifier', 'store')->name('modifier.store');
     // Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     // Route::post('/update/modifier', 'update')->name('modifier.update');

@@ -124,10 +124,7 @@
                     <form id="editMenuForm" method="post" action="{{ route('menu.update') }}"
                         enctype="multipart/form-data">
                         @csrf
-
-
                         <input type="hidden" name="id" id="edit-menu-id">
-
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="menu_name" class="form-label">Name</label>
@@ -140,13 +137,11 @@
                                     placeholder="Price" required>
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" name="description" id="edit-menu-description" rows="3"
                                 placeholder="Enter a description" required></textarea>
                         </div>
-
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
                             <select class="form-select" name="category" id="edit-menu-category" required>
@@ -156,7 +151,6 @@
                                 @endforeach
                             </select>
                         </div>
-
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
                             <div
@@ -169,7 +163,6 @@
                                     style="max-width: 100%; height: auto; display: none;">
                             </div>
                         </div>
-
                         <div class="mb-3 text-center">
                             <button class="btn btn-primary" type="submit">Update</button>
                         </div>
