@@ -73,7 +73,7 @@ Route::controller(TableController::class)->group(function () {
 Route::controller(OderController::class)->group(function () {
 
     Route::get('/oders', 'addOder')->name('add.oder');
-    // Route::post('/store/modifier', 'store')->name('modifier.store');
+    Route::post('/store/order', 'store')->name('order.store');
     // Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
     // Route::post('/update/modifier', 'update')->name('modifier.update');
     // Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');

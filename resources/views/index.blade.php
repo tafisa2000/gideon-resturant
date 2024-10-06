@@ -16,38 +16,7 @@
                                     <h4 class="page-title">Menu Available</h4>
                                 </div>
                             </div>
-                        </div>     
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row justify-content-between">
-                                            <div class="col-auto">
-                                                <form class="d-flex flex-wrap align-items-center">
-                                                    <label for="inputPassword2" class="visually-hidden">Search</label>
-                                                    <div class="me-3">
-                                                        <input type="search" class="form-control my-1 my-lg-0" id="inputPassword2" placeholder="Search...">
-                                                    </div>
-                                                    <label for="status-select" class="me-2">Sort By</label>
-                                                    <div class="me-sm-3">
-                                                        <select class="form-select my-1 my-lg-0" id="status-select">
-                                                            <option selected="">All</option>
-                                                            <option value="1">Popular</option>
-                                                            <option value="2">Price Low</option>
-                                                            <option value="3">Price High</option>
-                                                            <option value="4">Sold Out</option>
-                                                        </select>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                         
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
                         <div class="row">
                         @foreach ($menus as $key => $item)
                             <div class="col-md-6 col-lg-4 col-xl-3">
