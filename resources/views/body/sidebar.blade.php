@@ -73,6 +73,12 @@
                                     <li>
                                         <a href="{{ route('add.oder') }}">add Oder</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('pending.oder') }}">Pending Oder</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('complete.order') }}">Complete Oder</a>
+                                    </li>
                                 </ul>
 
                             </div>

@@ -71,10 +71,17 @@ Route::controller(TableController::class)->group(function () {
 });
 
 Route::controller(OderController::class)->group(function () {
-
     Route::get('/add/oder', 'addOder')->name('add.oder');
-    // Route::post('/store/modifier', 'store')->name('modifier.store');
-    // Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
+    Route::post('/store/oder', 'oderStore')->name('order.store');
+    Route::get('/pending/oder', 'PendingOrder')->name('pending.oder');
+    Route::get('/order/details/{order_id}', 'OrderDetails')->name('order.details');
+    Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
+    Route::get('/complete/order', 'CompleteOrder')->name('complete.order');
+    Route::get('/print/sale/{id}', 'PrintSale')->name('sale.print');
+
+
+
+
     // Route::post('/update/modifier', 'update')->name('modifier.update');
     // Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
 });
