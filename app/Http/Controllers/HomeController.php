@@ -7,7 +7,6 @@ use App\Models\MenuItem;
 
 class HomeController extends Controller
 {
-    //
     public function index()
     {
         $menus = MenuItem::latest()->get();

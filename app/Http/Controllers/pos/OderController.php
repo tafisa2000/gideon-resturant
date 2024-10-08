@@ -32,6 +32,7 @@ class OderController extends Controller
         if ($sale_data == null) {
             $firstReg = '0';
             $order_no = $firstReg + 1;
+            $order_no = $firstReg + 1;
         } else {
             $sale_data = Order::orderBy('id', 'desc')->first()->order_no;
             $order_no = $sale_data + 1;

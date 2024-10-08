@@ -80,11 +80,11 @@
                 <div class="modal-body">
                     <form class="px-3" method="post" action="{{ route('table.update') }}">
                         @csrf
-                        <input type="hidden" name="id" value="" id="edit-modifier-id">
-                        <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i>Edit Modifier</h5>
+                        <input type="hidden" name="id" value="" id="edit-table-id">
+                        <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i>Edit Table</h5>
                         <div class="mb-3">
                             <label for="modifier_name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" value="" id="edit-modifier-name"
+                            <input type="text" name="name" class="form-control" value="" id="edit-table-name"
                                 required>
                         </div>
                         <div class="text-end">
@@ -99,11 +99,11 @@
 
     <script type="text/javascript">
         $(document).on('click', '.edit-btn', function() {
-            var modifierId = $(this).data('id');
-            var modifierName = $(this).data('name');
+            var Id = $(this).data('id');
+            var tableName = $(this).data('name');
 
-            $('#edit-modifier-id').val(modifierId);
-            $('#edit-modifier-name').val(modifierName);
+            $('#edit-table-id').val(Id);
+            $('#edit-table-name').val(tableName);
         });
     </script>
 @endsection

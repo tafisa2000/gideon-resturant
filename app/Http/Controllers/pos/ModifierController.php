@@ -53,8 +53,8 @@ class ModifierController extends Controller
         $modifier_id = $request->id;
 
         Modifier::findOrFail($modifier_id)->update([
-            'name' => $request->modifier,  // Change 'name' to 'modifier' here
-            'updated_at' => Carbon::now(),  // Use 'updated_at' for update actions
+            'name' => $request->modifier, 
+            'updated_at' => Carbon::now(),  
         ]);
 
         $notification = array(
