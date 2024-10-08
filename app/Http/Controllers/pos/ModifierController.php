@@ -17,11 +17,6 @@ class ModifierController extends Controller
     }
 
 
-    // public function create()
-    // {
-
-    // }
-
 
     public function store(Request $request)
     {
@@ -53,8 +48,8 @@ class ModifierController extends Controller
         $modifier_id = $request->id;
 
         Modifier::findOrFail($modifier_id)->update([
-            'name' => $request->modifier, 
-            'updated_at' => Carbon::now(),  
+            'name' => $request->modifier,
+            'updated_at' => Carbon::now(),
         ]);
 
         $notification = array(
