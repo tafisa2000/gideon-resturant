@@ -24,7 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 Route::controller(UserController::class)->group(function () {
     Route::get('/users', 'index')->name('all.user');
     Route::post('/store/user', 'store')->name('user.store');
@@ -32,7 +31,6 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/update/user', 'update')->name('user.update');
     Route::get('/delete/user/{id}', 'destroy')->name('delete.user');
 });
-
 
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'AllCategory')->name('all.category');
@@ -42,7 +40,6 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
 });
 
-
 Route::controller(MenuController::class)->group(function () {
     Route::get('/menus', 'AllMenu')->name('all.menu');
     Route::post('/store/menu', 'StoreMenu')->name('menu.store');
@@ -51,9 +48,7 @@ Route::controller(MenuController::class)->group(function () {
     Route::get('/delete/menu/{id}', 'DeleteMenu')->name('delete.menu');
 });
 
-
 Route::controller(ModifierController::class)->group(function () {
-
     Route::get('/modifiers', 'index')->name('all.modifier');
     Route::post('/store/modifier', 'store')->name('modifier.store');
     Route::get('/edit/menu', 'EditMenu')->name('edit.modifier');
@@ -62,7 +57,6 @@ Route::controller(ModifierController::class)->group(function () {
 });
 
 Route::controller(TableController::class)->group(function () {
-
     Route::get('/tables', 'index')->name('all.table');
     Route::post('/store/table', 'store')->name('table.store');
     Route::get('/edit/table', 'EditMenu')->name('edit.table');
@@ -78,8 +72,5 @@ Route::controller(OderController::class)->group(function () {
     Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
     Route::get('/complete/order', 'CompleteOrder')->name('complete.order');
     Route::get('/print/sale/{id}', 'PrintSale')->name('sale.print');
-
-    // Route::post('/update/modifier', 'update')->name('modifier.update');
-    // Route::get('/delete/modifier/{id}', 'DeleteModifier')->name('delete.modifier');
 });
 require __DIR__ . '/auth.php';

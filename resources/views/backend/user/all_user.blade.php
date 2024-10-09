@@ -1,4 +1,4 @@
-{{-- @extends('admin_dashboard')
+@extends('admin_dashboard')
 
 @section('admin')
     <div class="content">
@@ -25,6 +25,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Photo</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
@@ -36,6 +37,7 @@
                                     @foreach ($user as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
+                                            <td>{{ $item->image_url }}</td>
                                             <td>{{ $item->first_name }}</td>
                                             <td>{{ $item->last_name }}</td>
                                             <td>{{ $item->email }}</td>
@@ -71,17 +73,17 @@
                         @csrf
                         <div class="mb-3">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input class="form-control" type="text" name="first_name" placeholder="Enter First Name"
+                            <input class="form-control" type="text" name="first_name" placeholder=""
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input class="form-control" type="text" name="last_name" placeholder="Enter Last Name"
+                            <input class="form-control" type="text" name="last_name" placeholder=""
                                 required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input class="form-control" type="email" name="email" placeholder="Enter Email" required>
+                            <input class="form-control" type="email" name="email" placeholder="" required>
                         </div>
                         <div class="mb-3">
                             <label for="position" class="form-label">Position</label>
@@ -93,6 +95,18 @@
                                 <option value="kitchen staff">Kitchen Staff</option>
                                 <option value="waiter">Waiter</option>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Profile Picture</label>
+                            <div
+                                style="border: 2px dashed #007bff; border-radius: 5px; padding: 10px; text-align: center;">
+                                <input style="border: none; width: 100%; background: transparent;" type="file"
+                                    name="image" accept="image/*">
+                            </div>
+                            <div class="mt-3 text-center">
+                                <img id="edit-menu-image" src="" alt="Current image"
+                                    style="max-width: 100%; height: auto; display: none;">
+                            </div>
                         </div>
                         <div class="mb-3 text-center">
                             <button class="btn btn-primary" type="submit">Add</button>
@@ -160,4 +174,4 @@
             $('#edit-email').val(email);
         });
     </script>
-@endsection --}}
+@endsection

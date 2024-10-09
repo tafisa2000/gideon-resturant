@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Mail\SendPasswordMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Notifications\SendPasswordNotification;
+
 
 class UserController extends Controller
 {
@@ -16,49 +22,47 @@ class UserController extends Controller
         $user = User::latest()->get();
         return view('backend.user.all_user', compact('user'));
     }
-    public function create()
-    {
-        //
-    }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'position' => 'required|string|max:255',  
+            'position' => 'required|string|max:255',
+            // Uncomment if image upload is needed
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
     
         $role = $request->position;
-        $password = Hash::make('password123');
+        $randomPassword = Str::random(10);
     
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'name' => $request->position,
-            'password' => $password,
-        ]);
+        $user = new User();
+        $user->name = $request->position;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->password = Hash::make($randomPassword);
+        $user->position = $request->position;
     
-        switch($role)
-        {
-            case 'admin':
-                $user->assignRole('admin');
-                break;
-            case 'manager':
-                $user->assignRole('manager');
-                break;
-            case 'cashier':
-                $user->assignRole('cashier');
-                break;
-            case 'waiter':
-                $user->assignRole('waiter');
-                break;
-            case 'kitchen_staff':
-                $user->assignRole('kitchen');
-                break;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $user->image_url = 'images/' . $imageName;
         }
+    
+        $user->assignRole($role);  // Direct role assignment
+    
+        $user->save();
+    
+        
+        // Mail::to($user->email)->send(new SendPasswordMail($randomPassword));
+        $user->notify(new SendPasswordNotification($randomPassword));
     
         $notification = array(
             'message' => 'Employees Inserted Successfully',
@@ -67,6 +71,7 @@ class UserController extends Controller
     
         return redirect()->route('all.user')->with($notification);
     }
+    
     
     
     public function show(string $id)

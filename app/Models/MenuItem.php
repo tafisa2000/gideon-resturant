@@ -13,8 +13,8 @@ class MenuItem extends Model
         'name',
         'price',
         'description',
-        'category',
         'image_url',
+        'category_id',
     ];
 
     public function category() // Singular form

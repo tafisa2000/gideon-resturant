@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Ngowi',
             'name' => 'Restorant Owner',
             'email' => 'massamugeorge@gmail.com',
+            'position' => 'Owner',
             'password' => bcrypt('password123'),
         ]);
 
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Mawi',
             'name' => 'Manager User',
             'email' => 'manager@gmail.com',
+            'position' => 'Manager',
             'password' => bcrypt('password123'),
         ]);
 
@@ -33,6 +35,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Fredson',
             'name' => 'Cashier User',
             'email' => 'cashier@gmail.com',
+            'position' => 'Cashier',
             'password' => bcrypt('password123'),
         ]);
 
@@ -41,6 +44,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Mawi',
             'name' => 'Kitchen Staff',
             'email' => 'kitchen@gmail.com',
+            'position' => 'Chief',
             'password' => bcrypt('password123'),
         ]);
 
@@ -49,6 +53,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Rally',
             'name' => 'Waiter User',
             'email' => 'waiter@gmail.com',
+            'position' => 'Waiter',
             'password' => bcrypt('password123'),
         ]);
 

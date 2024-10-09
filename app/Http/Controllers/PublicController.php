@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MenuItem;
 
 class PublicController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $menus = MenuItem::latest()->get();
+        return view('welcome', compact('menus'));
     }
 
     public function menu()

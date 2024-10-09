@@ -10,14 +10,10 @@ use Carbon\Carbon;
 
 class MenuController extends Controller
 {
-    //
     public function allMenu()
     {
-        // Fetch the latest menu items and all categories
         $menuItems = MenuItem::latest()->get();
         $categories = Category::all();
-
-        // Return the view with the retrieved data
         return view('backend.menu.all_menu', [
             'menu' => $menuItems,
             'category' => $categories,
@@ -50,6 +46,7 @@ class MenuController extends Controller
             $image->move(public_path('images'), $imageName);
             $menu->image_url = 'images/' . $imageName;
         }
+
         $menu->save();
         $notification = array(
             'message' => 'Menu Inserted Successfully',
